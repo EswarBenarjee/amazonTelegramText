@@ -18,6 +18,13 @@ copyDiv.addEventListener("click", () => {
 const submitting = () => {
   let t = msgInput.value.split("out of");
 
+  if (t[0].includes("visit")) {
+    t[0] = t[0].split("visit")[0];
+  }
+  if (t[0].includes("Visit")) {
+    t[0] = t[0].split("Visit")[0];
+  }
+
   t[1] = t[1].split("Deal");
   t[1][0] = t[1][0].split("|")[0];
   t[1][1] = t[1][1].split("M.R.P.: ");
