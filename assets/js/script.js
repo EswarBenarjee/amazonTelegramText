@@ -20,13 +20,22 @@ const submitting = () => {
 
   if (t[0].includes("visit")) {
     t[0] = t[0].split("visit")[0];
-  }
-  if (t[0].includes("Visit")) {
+  } else if (t[0].includes("Visit")) {
     t[0] = t[0].split("Visit")[0];
   }
 
-  t[1] = t[1].split("Deal");
-  t[1][0] = t[1][0].split("|")[0];
+  if (t[1].includes("Deal")) {
+    t[1] = t[1].split("Deal");
+  } else if (t[1].includes("Ends in")) {
+    t[1] = t[1].split("Ends in");
+  }
+
+  if (t[1][0].includes("questions")) {
+    t[1][0] = t[1][0].split("questions")[0];
+  } else if (t[1][0].includes("ratings")) {
+    t[1][0] = t[1][0].split("ratings")[0];
+  }
+
   t[1][1] = t[1][1].split("M.R.P.: ");
 
   t[1][1][0] = t[1][1][0].trim().split("%");
@@ -42,7 +51,7 @@ const submitting = () => {
 
   text = [t[0], ""];
   text.push(
-    "Rating: " + rating + " out of 5 | " + t[1][0].split("    ")[1].trim()
+    "Rating: " + rating + " out of 5 stars " + t[1][0].split("    ")[1].trim()
   );
   text.push("");
   text.push("MRP: " + t[1][1][1]);
