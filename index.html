@@ -17,13 +17,13 @@
     <div
       class="container p-5 d-flex justify-content-center align-items-center flex-column"
     >
-      <form action="#" onsubmit="return submitting();">
+      <form action="#" id="myForm">
         <input type="text" id="msg" />
         <input type="submit" value="Submit" class="btn btn-primary" />
       </form>
 
       <br />
-      <div class="border border-primary p-4 row">
+      <div class="border border-primary p-4 row" id="messageDiv">
         <div id="message" class="col-10"></div>
         <div id="copy" class="col-2">
           <i class="fa-solid fa-copy w-100 h-100" id="copyIcon"></i>
@@ -34,6 +34,9 @@
           ></i>
         </div>
       </div>
+
+      <br />
+      <div class="border border-info p-4 row" id="fetchMessage"></div>
     </div>
   </body>
   <script
